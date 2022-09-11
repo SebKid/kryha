@@ -26,7 +26,7 @@ var partOne = function() {
   let overlaps: number = 0;
   //instead of creating the whole model i can create just a whole virtual memory of the points so i dont have to use blank spots
   const memory: Map<number, number> = new Map();
-  function save(location) {
+  function save(location: any) {
     let content = memory.get(location);
     //console.log(location)
     //check and increment the overlaps when its crosesover
@@ -69,7 +69,7 @@ partOne();
 var partTwo = function () {
   let overlaps = 0;
   const memory: Map<number, number>= new Map();
-  function save(location) {
+  function save(location: any) {
     let content = memory.get(location);
     if (!content) {
       content = 0;
