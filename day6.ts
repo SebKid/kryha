@@ -33,7 +33,7 @@ var partTwo = function() {
     for (let i = 0; i < 256; i++) {
         //everytime fishes reach the first position in the lifecycle array it means they will breed therefore we need
         //append end by that many fishes and also push those to the 6th place because they dont die and thats the cycle
-        const breedingDay: number = lifecycle.shift()
+        const breedingDay: any = lifecycle.shift()
         lifecycle.push(breedingDay)
         lifecycle[6] += breedingDay
         
