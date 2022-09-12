@@ -4,8 +4,8 @@ let input = fs
   .readFileSync("/Users/sebastianbilandzija/DAY4 Kryha/input5.txt")
   .toString();
 
-  let vents = input
-  .split("\n") 
+let vents = input
+  .split("\n")
   .filter(Boolean)
   .map((line) => {
     const [from, to] = line.split(" -> ").map((point) => {
@@ -18,7 +18,7 @@ let input = fs
     };
   });
 
-var partOne = function() {
+var partOne = function () {
   //filter to find only horizontal and vertical vents
   const onlyHV = vents.filter(
     (vent) => vent.from.x === vent.to.x || vent.from.y === vent.to.y
@@ -42,7 +42,7 @@ var partOne = function() {
     }
     memory.set(location, content);
   }
-  onlyHV.forEach(vent => {
+  onlyHV.forEach((vent) => {
     //check for horizontal for decision
     const isHorizontal = vent.from.y === vent.to.y;
     let currentPoint = { x: vent.from.x, y: vent.from.y };
@@ -60,15 +60,14 @@ var partOne = function() {
     save([currentPoint.x, currentPoint.y].join(`,`));
   });
 
-
-  console.log(overlaps );
-}
+  console.log(overlaps);
+};
 
 partOne();
 
 var partTwo = function () {
   let overlaps = 0;
-  const memory: Map<number, number>= new Map();
+  const memory: Map<number, number> = new Map();
   function save(location: any) {
     let content = memory.get(location);
     if (!content) {
@@ -80,7 +79,7 @@ var partTwo = function () {
     }
     memory.set(location, content);
   }
-  vents.forEach(vent => {
+  vents.forEach((vent) => {
     const isHorizontal = vent.from.y === vent.to.y;
     const isVertical = vent.from.x === vent.to.x;
     let currentPoint = { x: vent.from.x, y: vent.from.y };
@@ -99,9 +98,8 @@ var partTwo = function () {
     }
     save([currentPoint.x, currentPoint.y].join(`,`));
   });
-  
 
   console.log(overlaps);
-}
+};
 
 partTwo();
